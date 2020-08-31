@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateUsersInPhotoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users_in_photo', function (Blueprint $table) {
             $table->id();
             $table->string('instagram_id',50);
-            $table->string('username',50);
-            $table->string('website',50);
-            $table->string('profile_picture',250);
-            $table->string('full_name',50);
-            $table->string('bio',50);
+            $table->decimal('position_x',10,8);
+            $table->decimal('position_y',10,8);
+            $table->bigInteger('user_id');
         });
     }
 
@@ -31,6 +29,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users_in_photo');
     }
 }

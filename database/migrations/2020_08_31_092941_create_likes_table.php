@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
+        Schema::create('likes', function (Blueprint $table) {
             $table->string('instagram_id',50);
-            $table->string('username',50);
-            $table->string('website',50);
-            $table->string('profile_picture',250);
-            $table->string('full_name',50);
-            $table->string('bio',50);
+            $table->bigInteger('user_id');
         });
     }
 
@@ -31,6 +26,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('likes');
     }
 }

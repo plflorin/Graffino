@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/importData','ImportController@index');
+
+Route::get('/exportData', 'ExportController@index');
