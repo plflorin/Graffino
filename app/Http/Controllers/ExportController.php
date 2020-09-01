@@ -146,6 +146,15 @@ class ExportController extends Controller
             $data[] = $record;
         }
 
-        return Response::json($data);
+        header('Access-Control-Allow-Origin: *');
+//        header('Access-Control-Allow-Methods: GET, POST');
+//        header("Access-Control-Allow-Headers: X-Requested-With");
+//        header("Content-type:application/json");
+//        header("Access-Control-Allow-Origin: *");
+
+        $json = new \stdClass();
+        $json->status = 200;
+        $json->data = $data;
+        echo json_encode($json);
     }
 }
